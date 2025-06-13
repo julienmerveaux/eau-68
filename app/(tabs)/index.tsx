@@ -3,7 +3,7 @@ import { View, StyleSheet, Text, TextInput, ScrollView } from 'react-native';
 import { Picker } from '@react-native-picker/picker';
 import { communeStore } from '@/store/communeStore';
 import { getDonneesPrincipalesReseau, DonneeReseau } from '@/services/apiHubeau';
-import DonneeCard from "@/app/(tabs)/components/DonneeCard";
+import DonneeCard from "@/app/components/DonneeCard";
 
 export default function HomeScreen() {
     const fetchCommunes = communeStore((state) => state.fetchCommuneHautRhin);
@@ -123,7 +123,7 @@ const styles = StyleSheet.create({
         marginBottom: 15,
         color: 'white',
     },
-    picker: { width: '100%', height: 50, color: 'white' },
+    picker: { width: '100%', height: 200, color: 'white' },
     text: { marginTop: 20, fontSize: 16, color: 'white' },
     donneeCard: {
         backgroundColor: '#222',
