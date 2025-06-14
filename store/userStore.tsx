@@ -1,5 +1,3 @@
-// stores/userStore.ts
-
 import { create } from 'zustand';
 // import {signUpService } from '@/services/firebaseAuth'
 
@@ -26,7 +24,7 @@ type UserStore = {
 };
 
 export const useUserStore = create<UserStore>((set, get) => ({
-  user: null,
+  user: {},
   isLoading: false,
 
   // --- Getters ---
