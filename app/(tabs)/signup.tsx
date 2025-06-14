@@ -6,7 +6,7 @@ export default function Signup() {
   const { signUp } = useUserStore();
   const [name, setName] = useState('test');
   const [email, setEmail] = useState('test@test.fr');
-  const [password, setPassword] = useState('test');
+  const [password, setPassword] = useState('test@test59');
 
   const handleInscription = async () => {
     try {
