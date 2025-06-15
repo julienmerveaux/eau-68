@@ -16,35 +16,30 @@ This is an [Expo](https://expo.dev) project created with [`create-expo-app`](htt
    npx expo start
    ```
 
-In the output, you'll find options to open the app in a
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+3. Créer un fichier .env et y copier le contenu du fichier .env.example.
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+Vous trouverez dans ce fichier les valeurs nécessaires à la configuration de Firebase utilisées dans firebase/firebase.config.ts.
 
-## Get a fresh project
+## Structure du code et choix techniques
+### Structure du code
 
-When you're ready, run:
+Le projet est structuré en plusieurs dossiers :
+- app/ Regroupe les composants réutilisables ainsi que les routes utilisées pour la navigation.
+- app/(tabs) Regroupe les pages du projet ainsi qu’un fichier _layout.tsx qui sert de routeur principal pour Expo.
+- app/components Contient les composants réutilisables de l’application.
+- firebase/firebase.config.ts Gère la connexion à Firebase ainsi qu’à la base de données Firestore.
+- interface/interface.ts Regroupe les interfaces de structures de données exportables pour être réutilisées dans l’ensemble de l’application
+- services/apiHubeau.ts Contient le service permettant de récupérer les données au format JSON via l’API Hubeau
+- services/firebaseAuth.ts Contient le service permettant d’interagir avec l’API Firebase pour la connexion, l’inscription et les autres opérations liées à l’authentification ou la base de donnée firestore.
+- store/... les stores sert à stocker et partager des données entre plusieurs parties de l’application, sans avoir à les transmettre manuellement à chaque fois.
 
-```bash
-npm run reset-project
-```
+### Choix techniques
+- React-native + expo + expo-routeur + expo go
+- TypeScript pour bénéficier du typage statique.
+- firebase pour  l’authentification et la base de données temps réel.
+- zustand bibliothèque légère et simple pour gérer l’état de l’application.
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+> ⚠️ Expo Go ne supporte pas l’authentification Firebase, comme le montre la pièce jointe de l’e-mail.
 
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+Si vous souhaitez malgré tout utiliser Expo, j’ai créé un système permettant de simuler une authentification.
