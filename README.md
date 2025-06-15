@@ -4,13 +4,17 @@ This is an [Expo](https://expo.dev) project created with [`create-expo-app`](htt
 
 ## Get started
 
-1. Install dependencies
+1. Créer un fichier ***.env*** et y copier le contenu du fichier ***.env.example***.
+
+Vous trouverez dans ce fichier les valeurs nécessaires à la configuration de Firebase utilisées dans firebase/firebase.config.ts.
+
+2. Install dependencies
 
    ```bash
    npm install
    ```
 
-2. Start the app
+3. Start the app
 
    ```bash
    npx expo start
@@ -43,3 +47,7 @@ Le projet est structuré en plusieurs dossiers :
 > ⚠️ Expo Go ne supporte pas l’authentification Firebase, comme le montre la pièce jointe de l’e-mail.
 
 Si vous souhaitez malgré tout utiliser Expo, j’ai créé un système permettant de simuler une authentification.
+Allez dans services/firebaseAuth et changer la valeur de ***testExpoGo*** en True
+
+Si la valeur est à false, l'application utilisera Firebase : il faudra donc tester l'authentification sur le web.
+En revanche, si la valeur est à true, l'authentification est simulée localement vous pourrez utiliser Expo GO
