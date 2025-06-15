@@ -1,32 +1,12 @@
 import { create } from 'zustand';
 import { fetchCommunes68, getDonneesPrincipalesReseau, getReseauxByCommune } from '@/services/apiHubeau';
+import {Commune,ResauxDistribution,DonneeReseau} from "@/interface/interface"
 
-export interface Commune {
-    nom_commune: string;
-    code_commune: string;
-}
-
-export interface ResauxDistribution {
-    code_reseau: string;
-    nom_reseau: string;
-    nom_commune: string;
-}
-
-export interface DonneesPrincipalesReseau {
-    date_prelevement: string;
-    nom_commune: string;
-    installation: string;
-    service_public_distribution: string;
-    conclusions_sanitaires: string;
-    conformite_bacteriologique: string;
-    conformite_physico_chimique: string;
-    respect_references_qualite: string;
-}
 
 type CommuneStore = {
     communes: Commune[];
     resauxDistribution: ResauxDistribution[];
-    donneesPrincipalesReseau: DonneesPrincipalesReseau[];
+    donneesPrincipalesReseau: DonneeReseau[];
     isLoading: boolean;
     error: string | null;
     fetchCommuneHautRhin: () => Promise<void>;

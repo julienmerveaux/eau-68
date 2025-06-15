@@ -5,13 +5,7 @@ import {
   removeFavoriteCommune, addFavoriteCommune, logoutService,
 } from '@/services/firebaseAuth';
 
-type User = {
-  id: string;
-  name: string;
-  email: string;
-  favorites?: string[];
-  token?: string;
-};
+import {User} from "@/interface/interface"
 
 type UserStore = {
   user: User | null;

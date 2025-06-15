@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet, Platform, useWindowDimensions } from 'react-native';
-import {DonneeReseau} from "@/services/apiHubeau";
+import {DonneeReseau} from "@/interface/interface";
 
 interface DonneeCardProps {
     donnee: DonneeReseau;
