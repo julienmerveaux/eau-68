@@ -6,10 +6,8 @@ export async function signUpService(name: string, email: string, password: strin
     const userCredential = await createUserWithEmailAndPassword(auth, email, password);
     const user = userCredential.user;
 
-    // Mise à jour du nom affiché
     await updateProfile(user, { displayName: name });
 
-    // Création du document utilisateur dans Firestore avec favoris vide
     await setDoc(doc(db, 'users', user.uid), {
         name,
         email,
