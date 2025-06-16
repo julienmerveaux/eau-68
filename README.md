@@ -4,7 +4,8 @@ This is an [Expo](https://expo.dev) project created with [`create-expo-app`](htt
 
 ## Get started
 
-1. Créer un fichier ***.env*** et y copier le contenu du fichier ***.env.example***.
+1. Crée un compte expo et se connecter via le lien suivant : https://expo.dev/signup
+
 
 Vous trouverez dans ce fichier les valeurs nécessaires à la configuration de Firebase utilisées dans firebase/firebase.config.ts.
 
@@ -14,17 +15,21 @@ Vous trouverez dans ce fichier les valeurs nécessaires à la configuration de F
    npm install
    ```
 
-3. Start the app
+3. Créer un fichier .env et y copier le contenu du fichier .env.example.
+
+Vous trouverez dans ce fichier les valeurs nécessaires à la configuration de Firebase utilisées dans firebase/firebase.config.ts.
+
+4. Start the app
 
    ```bash
    npx expo start
    ```
 
+Un terminal va s’ouvrir, patientez un instant, un QR code apparaîtra.
 
-3. Créer un fichier .env et y copier le contenu du fichier .env.example.
+    Sur iOS : ouvrez l’appareil photo ou un lecteur de QR code, puis scannez le code.
 
-Vous trouverez dans ce fichier les valeurs nécessaires à la configuration de Firebase utilisées dans firebase/firebase.config.ts.
-
+    Sur Android : je ne suis pas certain, mais selon la documentation, vous pouvez utiliser l’application Expo Go pour scanner le QR code ou bien un lecteur de QR tiers.
 ## Structure du code et choix techniques
 ### Structure du code
 
