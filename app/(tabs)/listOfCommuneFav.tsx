@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, FlatList, StyleSheet } from 'react-native';
 import { useUserStore } from '@/store/userStore';
+import CommuneFavoriteItem from "@/app/components/CommuneFavoriteItem";
 
 export default function ListOfCommuneFav() {
     const user = useUserStore((state) => state.user);
@@ -20,11 +21,7 @@ export default function ListOfCommuneFav() {
             <FlatList
                 data={user.favorites}
                 keyExtractor={(item, index) => index.toString()}
-                renderItem={({ item }) => (
-                    <View style={styles.row}>
-                        <Text style={styles.cell}>{item}</Text>
-                    </View>
-                )}
+                renderItem={({ item }) => <CommuneFavoriteItem commune={item} />}
             />
         </View>
     );
@@ -35,7 +32,7 @@ const styles = StyleSheet.create({
         paddingTop: 50,
         padding: 16,
         backgroundColor: 'gray',
-        flex:1
+        flex: 1,
     },
     emptyText: {
         fontSize: 16,
@@ -47,27 +44,5 @@ const styles = StyleSheet.create({
         fontSize: 20,
         fontWeight: 'bold',
         marginBottom: 12,
-    },
-    tableHeader: {
-        flexDirection: 'row',
-        borderBottomWidth: 1,
-        borderColor: '#ccc',
-        paddingBottom: 8,
-        marginBottom: 8,
-    },
-    headerText: {
-        flex: 1,
-        fontWeight: '600',
-        fontSize: 16,
-    },
-    row: {
-        flexDirection: 'row',
-        paddingVertical: 8,
-        borderBottomWidth: 0.5,
-        borderColor: '#eee',
-    },
-    cell: {
-        flex: 1,
-        fontSize: 16,
     },
 });
