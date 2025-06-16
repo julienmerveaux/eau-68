@@ -48,6 +48,10 @@ Le projet est structuré en plusieurs dossiers :
 
 Si vous souhaitez malgré tout utiliser Expo, j’ai créé un système permettant de simuler une authentification.
 Allez dans services/firebaseAuth et changer la valeur de ***testExpoGo*** en True
+et commenté la ligne en mettant // devant
+> import {auth, db} from "@/firebase/firebase.config";
+
+
 
 Si la valeur est à false, l'application utilisera Firebase : il faudra donc tester l'authentification sur le web.
 En revanche, si la valeur est à true, l'authentification est simulée localement vous pourrez utiliser Expo GO

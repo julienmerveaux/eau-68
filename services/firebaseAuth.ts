@@ -3,7 +3,7 @@ import {auth, db} from "@/firebase/firebase.config";
 import {createUserWithEmailAndPassword, updateProfile, signInWithEmailAndPassword, signOut} from 'firebase/auth';
 import {userTest} from "@/userDonnéeTest"
 
-const testExpoGo: boolean = false;
+const testExpoGo: boolean = true;
 
 
 export async function signUpService(name: string, email: string, password: string) {
@@ -93,7 +93,6 @@ export async function addFavoriteCommune(commune: string) {
             favorites: arrayUnion(commune),
         });
     } else {
-        console.log("test")
         if (!userTest.favorites.includes(commune)) {
             userTest.favorites.push(commune);
         }
