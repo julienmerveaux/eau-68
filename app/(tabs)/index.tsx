@@ -2,10 +2,11 @@ import React, { useEffect, useState } from 'react';
 import { View, StyleSheet, Text, TextInput, ScrollView, TouchableOpacity } from 'react-native';
 import { communeStore } from '@/store/communeStore';
 import { useUserStore } from '@/store/userStore';
-import { getDonneesPrincipalesReseau, DonneeReseau } from '@/services/apiHubeau';
+import { getDonneesPrincipalesReseau } from '@/services/apiHubeau';
 import DonneeCard from "@/app/components/DonneeCard";
 import Icon from 'react-native-vector-icons/FontAwesome';
-import { CustomPicker } from '@/app/components/CustomPicker'; // <-- import du nouveau composant
+import { CustomPicker } from '@/app/components/CustomPicker';
+import {DonneeReseau} from "@/interface/interface"
 
 export default function HomeScreen() {
   const { addFavoriteCommune, deleteFavoriteCommune } = useUserStore();
@@ -15,7 +16,6 @@ export default function HomeScreen() {
   const communes = communeStore((state) => state.communes);
   const reseaux = communeStore((state) => state.resauxDistribution);
   const user = useUserStore((state) => state.user);
-  const getuser = useUserStore((state) => state.getUser);
 
   const [selectedCommune, setSelectedCommune] = useState<string>('');
   const [selectedReseau, setSelectedReseau] = useState<string>('');
@@ -81,18 +81,22 @@ export default function HomeScreen() {
   return (
 
       <ScrollView style={styles.container}>
-        {user ? (
-            <Text style={styles.text}>Utilisateur connecté : {JSON.stringify(getuser())}</Text>
-        ) : (
-            <Text style={styles.text}>Utilisateur non connecté</Text>
-        )}
+        <View style={styles.containerH1}>
+          {user ? (
+              <Text style={styles.h1}>Bienvenue {user.name}</Text>
+          ) : (
+              <Text style={styles.h1}>Recherche des données d une commune</Text>
+          )}
+        </View>
         <TextInput
             placeholder="Rechercher une commune"
             value={searchTerm}
             onChangeText={setSearchTerm}
             style={styles.input}
-            placeholderTextColor="gray"
+            placeholderTextColor="black"
+
         />
+
 
         <View style={styles.pickerRow}>
           <View style={styles.pickerContainer}>
@@ -127,7 +131,7 @@ export default function HomeScreen() {
                   selectedValue={selectedReseau}
                   onValueChange={setSelectedReseau}
                   placeholder="Choisir un réseau"
-                  items={reseaux.map(r => ({ label: r.nom_reseau, value: r.code_reseau }))}
+                  items={reseaux.map(r => ({ label: r.nom_reseau, value: r.code_reseau, }))}
               />
             </>
         )}
@@ -150,11 +154,12 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 20,
-    backgroundColor: '#121212',
+    paddingTop: 50,
+    backgroundColor: 'gray',
   },
   input: {
     height: 40,
-    borderColor: 'gray',
+    borderColor: 'white',
     borderWidth: 1,
     borderRadius: 6,
     paddingHorizontal: 10,
@@ -172,16 +177,26 @@ const styles = StyleSheet.create({
     borderColor: 'gray',
     borderRadius: 6,
     overflow: 'hidden',
+    color: 'gray',
   },
   text: {
     marginTop: 20,
     fontSize: 16,
-    color: 'white',
+    color: 'black',
   },
   donneesContainer: {
     marginTop: 20,
   },
   iconButton: {
     marginLeft: 15,
+  },
+  h1: {
+    fontSize: 32,
+    fontWeight: 'bold',
+    marginBottom: 16,
+    color: 'black',
+  },
+  containerH1: {
+    alignItems: 'center',
   }
 });

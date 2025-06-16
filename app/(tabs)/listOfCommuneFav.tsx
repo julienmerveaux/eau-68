@@ -32,7 +32,10 @@ export default function ListOfCommuneFav() {
 
 const styles = StyleSheet.create({
     container: {
+        paddingTop: 50,
         padding: 16,
+        backgroundColor: 'gray',
+        flex:1
     },
     emptyText: {
         fontSize: 16,

@@ -35,6 +35,6 @@ export function CustomPicker({ selectedValue, onValueChange, items, placeholder 
 const styles = StyleSheet.create({
   picker: {
     width: '100%',
-    color: 'white',
+    color: 'black',
   },
 });
