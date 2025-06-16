@@ -3,7 +3,7 @@ import {auth, db} from "@/firebase/firebase.config";
 import {createUserWithEmailAndPassword, updateProfile, signInWithEmailAndPassword, signOut} from 'firebase/auth';
 import {userTest} from "@/userDonnéeTest"
 
-const testExpoGo: boolean = true;
+const testExpoGo: boolean = false;
 
 
 export async function signUpService(name: string, email: string, password: string) {
