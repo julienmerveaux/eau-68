@@ -1,7 +1,7 @@
 import {doc, updateDoc, arrayUnion, getDoc, arrayRemove, setDoc} from "firebase/firestore";
 import {auth, db} from "@/firebase/firebase.config";
 import {createUserWithEmailAndPassword, updateProfile, signInWithEmailAndPassword, signOut} from 'firebase/auth';
-import {userTest} from "@/userDonnéeTest"
+import {userTest} from "../userDonnéeTest"
 
 const testExpoGo: boolean = false;
 

@@ -58,7 +58,6 @@ export const useUserStore = create<UserStore>((set, get) => ({
     try {
       const data = await loginService(email, password);
       set({ user: data });
-      set({isLoggedIn : true})
     } catch (error) {
       console.error('Erreur lors de la connexion Firebase :', error);
       throw error;

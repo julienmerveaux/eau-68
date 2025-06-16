@@ -30,6 +30,7 @@ export default function Login() {
           value={password}
           onChangeText={setPassword}
           style={styles.input}
+          secureTextEntry={true}
       ></TextInput>
 
       <View style={styles.button}>

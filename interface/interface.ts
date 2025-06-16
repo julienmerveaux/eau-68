@@ -1,3 +1,5 @@
+import {GestureResponderEvent} from "react-native";
+
 export interface Commune {
     code_commune: string;
     nom_commune: string;
@@ -34,4 +36,16 @@ export interface User  {
     email: string;
     favorites?: string[];
     token?: string;
+};
+
+export interface UserTest {
+    name: string;
+    email: string;
+    favorites: string[];
+    createdAt: string;
+}
+
+export type NavButtonProps = {
+    title: string;
+    onPress: (event: GestureResponderEvent) => void;
 };

@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import {Alert, Text, TextInput, TouchableOpacity, View, StyleSheet } from 'react-native';
+import {Text, TextInput, TouchableOpacity, View, StyleSheet } from 'react-native';
 import { useUserStore } from '../../store/userStore';
+import {router} from "expo-router";
 
 export default function Signup() {
   const { signUp } = useUserStore();
@@ -11,10 +12,10 @@ export default function Signup() {
   const handleInscription = async () => {
     try {
       await signUp(name, email, password);
-      Alert.alert('Inscription réussie !');
-    } catch (error) {
-      Alert.alert('Erreur lors de l\'inscription');
-    }
+      router.push('/');
+    } catch (error: any) {
+      console.log(error);
+      alert(`Erreur lors de l'inscription : ${error.message}`);    }
   };
 
   return (

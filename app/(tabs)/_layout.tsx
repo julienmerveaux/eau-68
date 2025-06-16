@@ -1,85 +1,9 @@
-// import {Tabs} from 'expo-router';
-// import React from 'react';
-// import {Platform} from 'react-native';
-//
-// import {HapticTab} from '@/components/HapticTab';
-// import {IconSymbol} from '@/components/ui/IconSymbol';
-// import TabBarBackground from '@/components/ui/TabBarBackground';
-// import {Colors} from '@/constants/Colors';
-// import {useColorScheme} from '@/hooks/useColorScheme';
-// import {useUserStore} from '@/store/userStore';  // importe ton store user
-//
-// export default function TabLayout() {
-//     const colorScheme = useColorScheme();
-//     const user = useUserStore((state) => state.user);
-//     return (
-//
-//         <Tabs
-//             screenOptions={{
-//                 tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
-//                 headerShown: true,
-//                 tabBarButton: HapticTab,
-//                 tabBarBackground: TabBarBackground,
-//                 tabBarStyle: Platform.select({
-//                     ios: {
-//                         position: 'absolute',
-//                     },
-//                     default: {},
-//                 }),
-//             }}
-//         >
-//             <Tabs.Screen
-//                 name="index"
-//                 options={{
-//                     title: 'Home',
-//                     tabBarIcon: ({color}) => <IconSymbol size={28} name="house.fill" color={color}/>,
-//                 }}
-//             />
-//
-//             {!user ? (
-//                 <>
-//                     <Tabs.Screen
-//                         name="ScreenLogin"
-//                         options={{
-//                             title: 'Login',
-//                             tabBarIcon: ({color}) => <IconSymbol size={28} name="paperplane.fill" color={color}/>,
-//                         }}
-//                     />
-//                     <Tabs.Screen
-//                         name="ScreenInscription"
-//                         options={{
-//                             title: 'Inscription',
-//                             tabBarIcon: ({color}) => <IconSymbol size={28} name="paperplane.fill" color={color}/>,
-//                         }}
-//                     />
-//                 </>
-//             ) : (
-//                 <>
-//                     <Tabs.Screen
-//                         name="ScreenDeconnexion"
-//                         options={{
-//                             title: 'Déconnexion',
-//                             tabBarIcon: ({color}) => <IconSymbol size={28} name="arrow.right.square.fill" color={color}/>,
-//                         }}
-//                     />
-//                     <Tabs.Screen
-//                         name="listOfCommuneFav"
-//                         options={{
-//                             title: 'listOfCommuneFav',
-//                             tabBarIcon: ({color}) => <IconSymbol size={28} name="arrow.right.square.fill" color={color}/>,
-//                         }}
-//                     />
-//                 </>
-//
-//
-//             )}
-//         </Tabs>
-//     );
-// }
-
 import { Slot, useRouter } from 'expo-router';
 import { View, TouchableOpacity, Text, StyleSheet } from 'react-native';
 import { useUserStore } from '@/store/userStore';
+import {NavButtonProps} from "@/interface/interface"
+import { JSX } from 'react';
+
 
 export default function Layout() {
     const router = useRouter();
@@ -96,7 +20,7 @@ export default function Layout() {
     };
     return (
         <View style={styles.container}>
-            {/* Affiche le contenu de la page actuelle */}
+       
             <View style={styles.content}>
                 <Slot />
             </View>
@@ -121,7 +45,7 @@ export default function Layout() {
     );
 }
 
-function NavButton({ title, onPress }) {
+function NavButton({ title, onPress }: NavButtonProps): JSX.Element {
     return (
         <TouchableOpacity style={styles.navButton} onPress={onPress}>
             <Text style={styles.navButtonText}>{title}</Text>
